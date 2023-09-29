@@ -1,0 +1,94 @@
+﻿@model Fintech.Models.UsuarioModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuário - Cadastrar</title>
+</head>
+<body>
+    <h1>Usuário - Cadastrar</h1>
+
+
+    <form asp-action="Cadastrar" asp-controller="Usuario" method="post">
+        <div class="form-horizontal">
+            <hr />
+
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+
+                <div asp-validation-summary="All" class="alert alert-danger"></div>
+            }
+
+            <div class="form-group">
+                <label asp-for="Ds_login" class="control-label"></label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Ds_login" />
+                    <!-- Bloco para exibir mensagem de erro -->
+                    <span asp-validation-for="Ds_login" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Ds_senha" class="control-label"></label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Ds_senha" />
+                    <!-- Bloco para exibir mensagem de erro -->
+                    <span asp-validation-for="Ds_senha" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Nome de Usuário:</label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Nm_usuario" /> (MM/DD/AAAA)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Ds_email" class="control-label"></label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Ds_email" />
+                    <!-- Bloco para exibir mensagem de erro -->
+                    <span asp-validation-for="Ds_email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nr_celular" class="control-label"></label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Nr_celular" />
+                    <!-- Bloco para exibir mensagem de erro -->
+                    <span asp-validation-for="Nr_celular" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Data" />
+                    <!-- Bloco para exibir mensagem de erro -->
+                    <span asp-validation-for="Data" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a asp-controller="Usuario" asp-action="Index" class="btn btn-warning">Voltar</a>
+                    <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                </div>
+            </div>
+            <hr />
+        </div>
+    </form>
+
+</body>
+</html>

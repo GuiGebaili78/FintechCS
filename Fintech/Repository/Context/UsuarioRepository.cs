@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Fintech.Models;
+﻿using Fintech.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Fintech.Repository.Context
@@ -18,10 +14,25 @@ namespace Fintech.Repository.Context
 
         public IList<UsuarioModel> Listar()
         {
-            return dataBaseContext.tb_usuario.ToList();
+            var lista = new List<UsuarioModel>();
+
+            try
+            {
+               
+                lista = dataBaseContext.tb_usuario.ToList();
+            }
+            catch (Exception ex)
+            {
+               
+                Console.WriteLine($"Ocorreu um erro ao listar os usuários: {ex.Message}");
+              
+            }
+
+            return lista;
         }
 
-        [return: NotNull]
+
+
         public UsuarioModel Consultar(int id)
         {
             return dataBaseContext.tb_usuario.Find(id) ?? throw new Exception("Usuário não encontrado");

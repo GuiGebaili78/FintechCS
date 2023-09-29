@@ -7,7 +7,7 @@ namespace Fintech.Controllers
 {
     public class UsuarioController : Controller
     {
-        private readonly UsuarioRepository usuarioRepository;
+        private UsuarioRepository usuarioRepository;
 
         public UsuarioController(DataBaseContext dataBaseContext)
         {
@@ -34,7 +34,7 @@ namespace Fintech.Controllers
             {
                 usuarioRepository.Inserir(usuario);
                 TempData["mensagem"] = "Usuário cadastrado com sucesso";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Usuario");
             }
             return View(usuario);
         }
@@ -53,7 +53,7 @@ namespace Fintech.Controllers
             {
                 usuarioRepository.Alterar(usuario);
                 TempData["mensagem"] = "Usuário alterado com sucesso";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Usuario");
             }
             return View(usuario);
         }
@@ -69,7 +69,7 @@ namespace Fintech.Controllers
         public IActionResult Excluir(int id)
         {
             TempData["mensagem"] = "Usuário excluído com sucesso";
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Usuario");
         }
     }
 }

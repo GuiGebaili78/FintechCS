@@ -12,76 +12,64 @@
         <a asp-controller="Usuario" asp-action="Cadastrar">Novo Usuário</a>
     </p>
 
-    @if (TempData["Mensagem"] != null)
+    @if (@TempData["Mensagem"] != null)
     {
         <div class="alert alert-success" role="alert">
             @TempData["Mensagem"]
         </div>
     }
 
-    <div class="container">
-        <h2>Formulário de Usuário</h2>
-        <form method="post" asp-controller="Usuario" asp-action="Salvar">
-            <div class="mb-3">
-                <label for="Ds_login" class="form-label">Login</label>
-                <input type="text" class="form-control" id="Ds_login" name="Ds_login" placeholder="Digite o login" value="">
-            </div>
-            <div class="mb-3">
-                <label for="Ds_senha" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="Ds_senha" name="Ds_senha" placeholder="Digite a senha" value="">
-            </div>
-            <div class="mb-3">
-                <label for="Nm_usuario" class="form-label">Nome do Usuário</label>
-                <input type="text" class="form-control" id="Nm_usuario" name="Nm_usuario" placeholder="Digite o nome do usuário" value="">
-            </div>
-            <div class="mb-3">
-                <label for="Ds_email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="Ds_email" name="Ds_email" placeholder="Digite o e-mail" value="">
-            </div>
-            <div class="mb-3">
-                <label for="Nr_celular" class="form-label">Número de Celular</label>
-                <input type="tel" class="form-control" id="Nr_celular" name="Nr_celular" placeholder="Digite o número de celular" value="">
-            </div>
-            <div class="mb-3">
-                <label for="Data" class="form-label">Data</label>
-                <input type="date" class="form-control" id="Data" name="Data" value="">
-            </div>
-            <button type="submit" class="btn btn-primary">Salvar</button>
-        </form>
-    </div>
 
-    <table class="table">
-        <thead>
+    <table class="table" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Login</th>
+            <th>Senha</th>
+            <th>Nome do Usuário</th>
+            <th>Email</th>
+            <th>Celular</th>
+            <th>Data</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>Código</th>
-                <th>Login</th>
-                <th>Senha</th>
-                <th>Nome do Usuário</th>
-                <th>E-mail</th>
-                <th>Número de Celular</th>
-                <th>Data</th>
-                <th>Ações</th>
+                <td>
+                    <label>@item.Cd_usuario</label>
+                </td>
+                <td>
+                    <label>@item.Ds_login</label>
+                </td>
+                <td>
+                    <label>@item.Ds_senha</label>
+                </td>
+                <td>
+                    <label>@item.Nm_usuario</label>
+                </td>
+                <td>
+                    <label>@item.Ds_email</label>
+                </td>
+                <td>
+                    <label>@item.Nr_celular</label>
+                </td>
+                <td>
+
+                    <!-- asp-route-id é usado para informar o Id do Item selecionado. -->
+                    <a asp-controller="Usuario"
+                       asp-action="Editar"
+                       asp-route-id="@item.Cd_usuario">Editar</a>
+
+                    <a asp-controller="Usuario"
+                       asp-action="Consultar"
+                       asp-route-id="@item.Cd_usuario">Consultar</a>
+
+                    <a asp-controller="Usuario"
+                       asp-action="Excluir"
+                       asp-route-id="@item.Cd_usuario">Excluir</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.Cd_usuario</td>
-                    <td>@item.Ds_login</td>
-                    <td>@item.Ds_senha</td>
-                    <td>@item.Nm_usuario</td>
-                    <td>@item.Ds_email</td>
-                    <td>@item.Nr_celular</td>
-                    <td>@item.Data</td>
-                    <td>
-                        <a asp-controller="Usuario" asp-action="Editar" asp-route-id="@item.Cd_usuario">Editar</a> |
-                        <a asp-controller="Usuario" asp-action="Consultar" asp-route-id="@item.Cd_usuario">Consultar</a> |
-                        <a asp-controller="Usuario" asp-action="Excluir" asp-route-id="@item.Cd_usuario">Excluir</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
+        }
     </table>
 </body>
 </html>
