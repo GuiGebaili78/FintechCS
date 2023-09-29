@@ -41,9 +41,20 @@ namespace Fintech.Repository.Context
 
         public void Inserir(UsuarioModel usuario)
         {
-            dataBaseContext.tb_usuario.Add(usuario);
-            dataBaseContext.SaveChanges();
+            try
+            {
+                dataBaseContext.tb_usuario.Add(usuario);
+                dataBaseContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                // Trate a exceção aqui, você pode fazer log do erro ou tomar outras medidas necessárias.
+                Console.WriteLine("Ocorreu um erro ao inserir o usuário: " + ex.Message);
+                // Ou lançar a exceção novamente se for apropriado.
+                throw;
+            }
         }
+
 
         public void Alterar(UsuarioModel usuario)
         {
