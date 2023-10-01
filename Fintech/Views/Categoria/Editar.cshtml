@@ -1,0 +1,58 @@
+﻿@model Fintech.Models.CategoriaModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Categoria - Editar</title>
+</head>
+<body>
+    <h1>Categoria - Editar</h1>
+
+
+    <form asp-action="Editar" asp-controller="Categoria" method="post">
+
+
+        <input type="hidden" asp-for="Cd_categ" />
+        <div class="form-horizontal">
+            <hr />
+
+            <div class="form-group">
+                <label>Tipo:</label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Tp_categ" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Descrição:</label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Ds_categ" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Subcategoria:</label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Ds_subCateg" />
+                </div>
+            </div>
+
+
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a asp-controller="Categoria" asp-action="Index" class="btn btn-warning">Voltar</a>
+                    <input type="submit" value="Gravar" class="btn btn-primary" />
+                </div>
+            </div>
+            <hr />
+        </div>
+    </form>
+
+</body>
+</html>

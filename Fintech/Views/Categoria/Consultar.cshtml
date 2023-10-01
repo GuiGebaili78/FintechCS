@@ -1,0 +1,54 @@
+﻿@model Fintech.Models.CategoriaModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Categoria - Consultar</title>
+</head>
+<body>
+    <h1>Categoria - Consultar</h1>
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label><b>Id</b></label>
+            <div class="col-md-10">
+                <span>@Model.Cd_categ</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Tipo</b></label>
+            <div class="col-md-10">
+                <span>@Model.Tp_categ</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Descrição</b></label>
+            <div class="col-md-10">
+                <span>@Model.Ds_categ</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Subcategoria</b></label>
+            <div class="col-md-10">
+                <span>@Model.Ds_subCateg</span>
+            </div>
+        </div>
+
+
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a asp-controller="Categoria" asp-action="Index" class="btn btn-warning">Voltar</a>
+            </div>
+        </div>
+        <hr />
+    </div>
+
+</body>
+</html>

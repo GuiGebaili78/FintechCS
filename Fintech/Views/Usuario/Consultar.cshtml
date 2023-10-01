@@ -1,5 +1,67 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Fintech.Models.UsuarioModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuário - Consultar</title>
+</head>
+<body>
+    <h1>Usuário - Consultar</h1>
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label><b>Id</b></label>
+            <div class="col-md-10">
+                <span>@Model.Cd_usuario</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Login</b></label>
+            <div class="col-md-10">
+                <span>@Model.Ds_login</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Senha</b></label>
+            <div class="col-md-10">
+                <span>@Model.Ds_senha</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Nome Usuário</b></label>
+            <div class="col-md-10">
+                <span>@Model.Nm_usuario</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Email</b></label>
+            <div class="col-md-10">
+                <span>@Model.Ds_email</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Celular</b></label>
+            <div class="col-md-10">
+                <span>@Model.Nr_celular</span>
+            </div>
+        </div>
+
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a asp-controller="Usuario" asp-action="Index" class="btn btn-warning">Voltar</a>
+            </div>
+        </div>
+        <hr />
+    </div>
+
+</body>
+</html>

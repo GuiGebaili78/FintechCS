@@ -68,6 +68,7 @@ namespace Fintech.Controllers
         [HttpGet]
         public IActionResult Excluir(int id)
         {
+            categoriaRepository.Excluir(id);
             TempData["mensagem"] = "Categoria excluída com sucesso";
             return RedirectToAction("Index", "Categoria");
         }
