@@ -1,0 +1,67 @@
+﻿@model Fintech.Models.CategoriaModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Categoria - Cadastrar</title>
+</head>
+<body>
+    <h1>Categoria - Cadastrar</h1>
+
+
+    <form asp-action="Cadastrar" asp-controller="Categoria" method="post">
+        <div class="form-horizontal">
+            <hr />
+
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+
+                <div asp-validation-summary="All" class="alert alert-danger"></div>
+            }
+
+            <div class="form-group">
+                <label asp-for="Tp_categ" class="control-label">Tipo</label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Tp_categ" />
+                    <!-- Bloco para exibir mensagem de erro -->
+                    <span asp-validation-for="Tp_categ" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Ds_categ" class="control-label">Categoria</label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Ds_categ" />
+                    <!-- Bloco para exibir mensagem de erro -->
+                    <span asp-validation-for="Ds_categ" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Ds_subCateg" class="control-label">Subcategoria</label>
+                <div class="col-md-10">
+                    <!-- Caixa de Texto -->
+                    <input asp-for="Ds_subCateg" />
+                    <!-- Bloco para exibir mensagem de erro -->
+                    <span asp-validation-for="Ds_subCateg" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a asp-controller="Categoria" asp-action="Index" class="btn btn-warning">Voltar</a>
+                    <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                </div>
+            </div>
+            <hr />
+        </div>
+    </form>
+
+</body>
+</html>

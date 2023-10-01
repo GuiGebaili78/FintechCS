@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Fintech.Models.CategoriaModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Categoria</title>
+</head>
+<body>
+    <h1>Categoria</h1>
+    <p>
+        <a asp-controller="Categoria" asp-action="Cadastrar">Nova Categoria</a>
+    </p>
+
+    @if (@TempData["Mensagem"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["Mensagem"]
+        </div>
+    }
+
+
+    <table class="table" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Sub Descição</th>
+            
+
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <label>@item.Cd_categ</label>
+                </td>
+                <td>
+                    <label>@item.Tp_categ</label>
+                </td>
+                <td>
+                    <label>@item.Ds_categ</label>
+                </td>
+                <td>
+                    <label>@item.Ds_subCateg</label>
+                </td>
+               
+                <td>
+
+                    <!-- asp-route-id é usado para informar o Id do Item selecionado. -->
+                    <a asp-controller="Categoria"
+                       asp-action="Editar"
+                       asp-route-id="@item.Cd_categ">Editar</a>
+
+                    <a asp-controller="Categoria"
+                       asp-action="Consultar"
+                       asp-route-id="@item.Cd_categ">Consultar</a>
+
+                    <a asp-controller="Categoria"
+                       asp-action="Excluir"
+                       asp-route-id="@item.Cd_categ">Excluir</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
